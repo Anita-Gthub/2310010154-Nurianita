@@ -14,47 +14,53 @@ public class AplikasiKonversiSuhu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        nilaiSuhu = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        fromScale = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        toScale = new javax.swing.JComboBox<>();
-        konversi = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        txtangka = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        Celsius = new javax.swing.JRadioButton();
+        Fahrenheit = new javax.swing.JRadioButton();
+        Kelvin = new javax.swing.JRadioButton();
+        jButton = new javax.swing.JButton();
+        Reamur = new javax.swing.JRadioButton();
         keluar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        hasil = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        total = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Masukkan Nilai Suhu");
-
-        nilaiSuhu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nilaiSuhuActionPerformed(evt);
+        txtangka.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtangkaFocusGained(evt);
             }
         });
-        nilaiSuhu.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtangka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtangkaActionPerformed(evt);
+            }
+        });
+        txtangka.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                nilaiSuhuKeyTyped(evt);
+                txtangkaKeyTyped(evt);
             }
         });
 
-        jLabel2.setText("Dari");
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin", "Reamur", " " }));
 
-        fromScale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CELCIUS", "FARENHEIT", "KELVIN", "REAMUR" }));
+        Celsius.setText("Celsius");
 
-        jLabel3.setText("Menjadi");
+        Fahrenheit.setText("Fahrenheit");
 
-        toScale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CELCIUS", "FARENHEIT", "KELVIN", "REAMUR" }));
+        Kelvin.setText("Kelvin");
 
-        konversi.setText("KONVERSI");
-        konversi.addActionListener(new java.awt.event.ActionListener() {
+        jButton.setText("hitung");
+        jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                konversiActionPerformed(evt);
+                jButtonActionPerformed(evt);
             }
         });
+
+        Reamur.setText("Reamur");
 
         keluar.setText("KELUAR");
         keluar.addActionListener(new java.awt.event.ActionListener() {
@@ -63,162 +69,169 @@ public class AplikasiKonversiSuhu extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("HASIL");
+        jLabel2.setText("HASIL SUHU");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(fromScale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(toScale, 0, 1, Short.MAX_VALUE)))
-                        .addGap(28, 28, 28)
-                        .addComponent(konversi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(hasil)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(keluar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jLabel1.setText("HASIL");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Celsius)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nilaiSuhu)))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nilaiSuhu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(fromScale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Fahrenheit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(toScale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(konversi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(hasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(keluar))
-                .addGap(38, 38, 38))
+                        .addComponent(Kelvin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Reamur))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(keluar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(txtangka, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(total, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtangka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Celsius)
+                    .addComponent(Fahrenheit)
+                    .addComponent(Kelvin)
+                    .addComponent(Reamur))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton)
+                .addGap(23, 23, 23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addComponent(keluar)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 475, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 356, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void convertTemperature() {
-    String inputText = nilaiSuhu.getText().trim();
+    private void txtangkaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtangkaFocusGained
+        // TODO add your handling code here:
+        txtangka.setText("");
+    }//GEN-LAST:event_txtangkaFocusGained
 
-    if (inputText.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Masukkan nilai suhu!", "Peringatan", JOptionPane.WARNING_MESSAGE);
-        return;
-    }
+    private void txtangkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtangkaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtangkaActionPerformed
 
-    double inputTemperature;
-    try {
-        inputTemperature = Double.parseDouble(inputText);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Input tidak valid! Masukkan angka.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+    private void txtangkaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtangkaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.' && c != KeyEvent.VK_BACK_SPACE) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Hanya angka dan titik desimal yang diperbolehkan.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtangkaKeyTyped
 
-    String from = (String) fromScale.getSelectedItem();
-    String to = (String) toScale.getSelectedItem();
+    private void jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionPerformed
+        // TODO add your handling code here:
+        performConversion();
+    }//GEN-LAST:event_jButtonActionPerformed
 
-    if (from.equals(to)) {
-        hasil.setText(String.format("%.2f", inputTemperature) + " " + to);
-        return;
-    }
-
-    double resultTemperature = convert(inputTemperature, from, to);
-    hasil.setText(String.format("%.2f", resultTemperature) + " " + to);
-
-    }
-
-private double convert(double temp, String from, String to) {
-    double result = temp;
-    switch (from) {
-        case "CELCIUS": break;
-        case "FARENHEIT": result = (temp - 32) * 5 / 9; break;
-        case "REAMUR": result = temp * 5 / 4; break;
-        case "KELVIN": result = temp - 273.15; break;
-    }
-
-    switch (to) {
-        case "CELCIUS": break;
-        case "FARENHEIT": result = result * 9 / 5 + 32; break;
-        case "REAMUR": result = result * 4 / 5; break;
-        case "KELVIN": result = result + 273.15; break;
-    }
-
-    return Math.round(result * 100.0) / 100.0;
-}
-    
     private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(this, "Anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
-        System.exit(0);
+            System.exit(0);
         }
     }//GEN-LAST:event_keluarActionPerformed
 
-    private void konversiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_konversiActionPerformed
-        // TODO add your handling code here:
-        convertTemperature();
-    }//GEN-LAST:event_konversiActionPerformed
+ private void performConversion() {
+        try {
+            double input = Double.parseDouble(txtangka.getText());
+            String targetScale = (String) jComboBox1.getSelectedItem();
+            double result = 0;
 
-    private void nilaiSuhuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nilaiSuhuKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-    if (!Character.isDigit(c) && c != '.' && c != KeyEvent.VK_BACK_SPACE) {
-        evt.consume();
-        JOptionPane.showMessageDialog(this, "Hanya angka dan titik desimal yang diperbolehkan.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            if (Celsius.isSelected()) {
+                if ("Fahrenheit".equals(targetScale)) {
+                    result = (input * 9 / 5) + 32;
+                } else if ("Kelvin".equals(targetScale)) {
+                    result = input + 273.15;
+                } else if ("Reamur".equals(targetScale)) {
+                    result = input * 4 / 5;
+                }
+            } else if (Fahrenheit.isSelected()) {
+                if ("Celsius".equals(targetScale)) {
+                    result = (input - 32) * 5 / 9;
+                } else if ("Kelvin".equals(targetScale)) {
+                    result = (input - 32) * 5 / 9 + 273.15;
+                } else if ("Reamur".equals(targetScale)) {
+                    result = (input - 32) * 4 / 9;
+                }
+            } else if (Kelvin.isSelected()) {
+                if ("Celsius".equals(targetScale)) {
+                    result = input - 273.15;
+                } else if ("Fahrenheit".equals(targetScale)) {
+                    result = (input - 273.15) * 9 / 5 + 32;
+                } else if ("Reamur".equals(targetScale)) {
+                    result = (input - 273.15) * 4 / 5;
+                }
+            } else if (Reamur.isSelected()) {
+                if ("Celsius".equals(targetScale)) {
+                    result = input * 5 / 4;
+                } else if ("Fahrenheit".equals(targetScale)) {
+                    result = input * 9 / 4 + 32;
+                } else if ("Kelvin".equals(targetScale)) {
+                    result = input * 5 / 4 + 273.15;
+                }
+            }
+
+            total.setText(String.format("%.2f", result));
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Masukkan nilai angka yang valid.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-    }//GEN-LAST:event_nilaiSuhuKeyTyped
-
-    private void nilaiSuhuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nilaiSuhuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nilaiSuhuActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -255,16 +268,17 @@ private double convert(double temp, String from, String to) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> fromScale;
-    private javax.swing.JTextField hasil;
+    private javax.swing.JRadioButton Celsius;
+    private javax.swing.JRadioButton Fahrenheit;
+    private javax.swing.JRadioButton Kelvin;
+    private javax.swing.JRadioButton Reamur;
+    private javax.swing.JButton jButton;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton keluar;
-    private javax.swing.JButton konversi;
-    private javax.swing.JTextField nilaiSuhu;
-    private javax.swing.JComboBox<String> toScale;
+    private javax.swing.JTextField total;
+    private javax.swing.JTextField txtangka;
     // End of variables declaration//GEN-END:variables
 }

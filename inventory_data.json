@@ -1,0 +1,90 @@
+[
+    {
+        "Keadaan": "s",
+        "Harga Barang": "KURANG BAIK",
+        "Keterangan": "2",
+        "Nama Barang": "21",
+        "Jumlah Barang": "d",
+        "Kode Barang": 1
+    },
+    {
+        "Keadaan": "f",
+        "Harga Barang": "BAIK",
+        "Keterangan": "fh",
+        "Nama Barang": "ii",
+        "Jumlah Barang": "gg",
+        "Kode Barang": 2
+    },
+    {
+        "Keadaan": "j",
+        "Harga Barang": "KURANG BAIK",
+        "Keterangan": "j",
+        "Nama Barang": "j",
+        "Jumlah Barang": "j",
+        "Kode Barang": 3
+    },
+    {
+        "Keadaan": "5",
+        "Harga Barang": "BAIK",
+        "Keterangan": "15.000.000",
+        "Nama Barang": "KB001",
+        "Jumlah Barang": "PRINTER",
+        "Kode Barang": 4
+    },
+    {
+        "Keadaan": "2",
+        "Harga Barang": "KURANG BAIK",
+        "Keterangan": "10000",
+        "Nama Barang": "KB002",
+        "Jumlah Barang": "PENGGARIS",
+        "Kode Barang": 5
+    },
+    {
+        "Keadaan": "1",
+        "Harga Barang": "KURANG BAIK",
+        "Keterangan": "20.000",
+        "Nama Barang": "KB003",
+        "Jumlah Barang": "MOUSE",
+        "Kode Barang": 6
+    },
+    {
+        "Keadaan": "2",
+        "Harga Barang": "RUSAK",
+        "Keterangan": "200000",
+        "Nama Barang": "KB004",
+        "Jumlah Barang": "K",
+        "Kode Barang": 7
+    },
+    {
+        "Keadaan": "10",
+        "Harga Barang": "KURANG BAIK",
+        "Keterangan": "100234000",
+        "Nama Barang": "KB005",
+        "Jumlah Barang": "KOMPUTER",
+        "Kode Barang": 8
+    },
+    {
+        "Keadaan": "2",
+        "Harga Barang": "BAIK",
+        "Keterangan": "WW",
+        "Nama Barang": "KB006",
+        "Jumlah Barang": "SA",
+        "Kode Barang": 9
+    },
+    {
+        "Keadaan": "S",
+        "Harga Barang": "KURANG BAIK",
+        "Keterangan": "SSA",
+        "Nama Barang": "KH",
+        "Jumlah Barang": "S",
+        "Kode Barang": 10
+    },
+    {
+        "Keadaan": "a",
+        "Harga Barang": "KURANG BAIK",
+        "Keterangan": "aa",
+        "Nama Barang": "wds",
+        "Jumlah Barang": "a",
+        "Kode Barang": 11
+    }
+]

@@ -1,9 +1,12 @@
 package Tugas;
+
 import java.awt.event.FocusAdapter;
 import javax.swing.JOptionPane;
 import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
 
 public class AplikasiCekNomorGenapGanjil extends javax.swing.JFrame {
+
     public AplikasiCekNomorGenapGanjil() {
         setTitle("Aplikasi Cek Nomer");
         initComponents();
@@ -18,14 +21,19 @@ public class AplikasiCekNomorGenapGanjil extends javax.swing.JFrame {
             }
         });
     }
+
     private boolean isPrime(int num) {
-        if (num <= 1) return false;
+        if (num <= 1) {
+            return false;
+        }
         for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) return false;
+            if (num % i == 0) {
+                return false;
+            }
         }
         return true;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -55,6 +63,17 @@ public class AplikasiCekNomorGenapGanjil extends javax.swing.JFrame {
         keluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keluarActionPerformed(evt);
+            }
+        });
+
+        txtnum.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtnumFocusGained(evt);
+            }
+        });
+        txtnum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnumKeyTyped(evt);
             }
         });
 
@@ -148,9 +167,23 @@ public class AplikasiCekNomorGenapGanjil extends javax.swing.JFrame {
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(this, "Anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
-        dispose();
+            dispose();
         }
     }//GEN-LAST:event_keluarActionPerformed
+
+    private void txtnumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnumKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Hanya angka yang diperbolehkan!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_txtnumKeyTyped
+
+    private void txtnumFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnumFocusGained
+        // TODO add your handling code here:
+        txtnum.setText("");
+    }//GEN-LAST:event_txtnumFocusGained
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -1,36 +1,33 @@
 package Tugas;
+
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
-
 public class AplikasiPenghitunganHari extends javax.swing.JFrame {
+
     public AplikasiPenghitunganHari() {
         setTitle("Aplikasi Penghitungan Hari");
         initComponents();
     }
 
-private void hitungHari() {
-    try {
-        int tahun = Integer.parseInt(tahunField.getText().trim());
+    private void hitungJumlahHari() {
         int bulan = bulanComboBox.getSelectedIndex() + 1;
+        int tahun = (int) tahunSpinner.getValue();
 
         YearMonth yearMonth = YearMonth.of(tahun, bulan);
         int jumlahHari = yearMonth.lengthOfMonth();
+        LocalDate hariPertama = LocalDate.of(tahun, bulan, 1);
+        LocalDate hariTerakhir = LocalDate.of(tahun, bulan, jumlahHari);
 
-        jumlahHariLabel.setText(String.valueOf(jumlahHari) + " Hari");
-
-        if (bulan == 2 && yearMonth.isLeapYear()) {
-            informasiLabel.setText("Tahun Kabisat");
-        } else {
-            informasiLabel.setText("Tahun Bukan Kabisat");
-        }
-    } catch (NumberFormatException e) {
-        jumlahHariLabel.setText("Input tidak valid");
-        informasiLabel.setText("Masukkan tahun dengan benar.");
+        Locale indonesiaLocale = new Locale("id", "ID");
+        hasilLabel.setText("Jumlah Hari: " + jumlahHari);
+        infoLabel.setText("Hari Pertama: " + hariPertama.getDayOfWeek().getDisplayName(TextStyle.FULL, indonesiaLocale)
+                + ", Hari Terakhir: " + hariTerakhir.getDayOfWeek().getDisplayName(TextStyle.FULL, indonesiaLocale));
     }
-}
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,13 +35,13 @@ private void hitungHari() {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        hasilLabel = new javax.swing.JLabel();
+        infoLabel = new javax.swing.JLabel();
         jumlahHariLabel = new javax.swing.JLabel();
         informasiLabel = new javax.swing.JLabel();
-        tahunField = new javax.swing.JTextField();
         bulanComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        tahunSpinner = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,15 +49,9 @@ private void hitungHari() {
 
         jLabel2.setText("MASUKKAN BULAN");
 
-        jLabel3.setText("Jumlah Hari :");
+        hasilLabel.setText("Jumlah Hari :");
 
-        jLabel4.setText("Informasi :");
-
-        tahunField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tahunFieldKeyTyped(evt);
-            }
-        });
+        infoLabel.setText("Informasi :");
 
         bulanComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januari", "Pebruari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
 
@@ -81,20 +72,20 @@ private void hitungHari() {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(tahunField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jumlahHariLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tahunSpinner, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bulanComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(hasilLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                            .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(informasiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(informasiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jumlahHariLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,7 +94,7 @@ private void hitungHari() {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tahunField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tahunSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -111,12 +102,12 @@ private void hitungHari() {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hasilLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jumlahHariLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
+                    .addComponent(infoLabel)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(informasiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)))
@@ -145,17 +136,8 @@ private void hitungHari() {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        hitungHari();
+        hitungJumlahHari();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void tahunFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tahunFieldKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c) && c != java.awt.event.KeyEvent.VK_BACK_SPACE) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Hanya angka yang diperbolehkan untuk tahun!", "Peringatan", JOptionPane.WARNING_MESSAGE);
-        }
-    }//GEN-LAST:event_tahunFieldKeyTyped
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -191,14 +173,14 @@ private void hitungHari() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> bulanComboBox;
+    private javax.swing.JLabel hasilLabel;
+    private javax.swing.JLabel infoLabel;
     private javax.swing.JLabel informasiLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jumlahHariLabel;
-    private javax.swing.JTextField tahunField;
+    private javax.swing.JSpinner tahunSpinner;
     // End of variables declaration//GEN-END:variables
 }
